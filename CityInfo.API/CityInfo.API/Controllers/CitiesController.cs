@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CityInfo.API.Controllers
 {
@@ -6,9 +7,20 @@ namespace CityInfo.API.Controllers
     public class CitiesController : Controller
     {
         [HttpGet()]
-        public JsonResult GetCities()
+        public IActionResult GetCities()
         {
-            return new JsonResult(CitiesDataStore.Current.Cities);
+            return Ok(CitiesDataStore.Current.Cities);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetCity(int id)
+        {
+            var cityToReturn = CitiesDataStore.Current.Cities.Where(x => x.Id == id);
+            if (!cityToReturn.Any())
+            {
+                return NotFound();
+            }
+            return Ok(cityToReturn);
         }
     }
 }
