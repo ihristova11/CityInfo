@@ -15,7 +15,43 @@ namespace CityInfo.API
                 {
                     Id = 1,
                     Name = "Lovech",
-                    Description = "My town"
+                    Description = "My town", 
+                    PointsOfInterest = new List<PointOfInterestDTO>()
+                    {
+                        new PointOfInterestDTO()
+                        {
+                            Id = 1, 
+                            Name = "irinaaa",
+                            Description = "irinaaaaa a a a a"
+                        },
+                        new PointOfInterestDTO()
+                        {
+                            Id = 1,
+                            Name = "irinaaa",
+                            Description = "irinaaaaa a a a a"
+                        }
+                    }
+                },
+                new CityDTO()
+                {
+                    Id = 4,
+                    Name = "Lovech",
+                    Description = "My town",
+                    PointsOfInterest = new List<PointOfInterestDTO>()
+                    {
+                        new PointOfInterestDTO()
+                        {
+                            Id = 1,
+                            Name = "irinaaa",
+                            Description = "irinaaaaa a a a a"
+                        },
+                        new PointOfInterestDTO()
+                        {
+                            Id = 1,
+                            Name = "irinaaa",
+                            Description = "irinaaaaa a a a a"
+                        }
+                    }
                 },
                 new CityDTO()
                 {

@@ -1,4 +1,6 @@
-﻿namespace CityInfo.API.Models
+﻿using System.Collections.Generic;
+
+namespace CityInfo.API.Models
 {
     public class CityDTO
     {
@@ -8,7 +10,12 @@
 
         public string Description { get; set; }
 
-        public int NumberOfPointsOfInterest { get; set; }
-        
+        public int NumberOfPointsOfInterest
+        {
+            get { return this.PointsOfInterest.Count; }
+        }
+
+        public ICollection<PointOfInterestDTO> PointsOfInterest { get; set; } = new List<PointOfInterestDTO>();
+
     }
 }
