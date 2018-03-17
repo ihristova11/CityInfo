@@ -1,5 +1,8 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CityInfo.API.Controllers
 {
@@ -15,12 +18,15 @@ namespace CityInfo.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetCity(int id)
         {
-            var cityToReturn = CitiesDataStore.Current.Cities.Where(x => x.Id == id);
-            if (!cityToReturn.Any())
+            // find city
+            var cityToReturn = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id);
+            if (cityToReturn == null)
             {
                 return NotFound();
             }
+
             return Ok(cityToReturn);
         }
+
     }
 }
